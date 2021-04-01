@@ -21,8 +21,12 @@ import { mergeData } from "../helpers";
 FocusStyleManager.onlyShowFocusOnTabs();
 
 export type ChartType = "area" | "candle" | "line";
-export type Overlay = "bollinger" | "envelope" | "priceMonitoringBounds";
-export type Study = "eldarRay" | "macd" | "volume";
+export type Overlay =
+  | "bollinger"
+  | "envelope"
+  | "ichimoku"
+  | "priceMonitoringBounds";
+export type Study = "eldarRay" | "volume" | "macd";
 
 export type ChartProps = {
   dataSource: DataSource;

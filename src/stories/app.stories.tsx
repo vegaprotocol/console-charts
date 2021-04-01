@@ -63,7 +63,7 @@ type Study = {
 };
 
 type Overlay = {
-  id: "bollinger" | "envelope" | "priceMonitoringBounds" | "none";
+  id: "bollinger" | "envelope" | "ichimoku" | "priceMonitoringBounds" | "none";
   label: string;
 };
 
@@ -157,6 +157,7 @@ const overlays: Overlay[] = [
   { id: "none", label: "None" },
   { id: "bollinger", label: "Bollinger Bands" },
   { id: "envelope", label: "Envelope" },
+  { id: "ichimoku", label: "Ichimoku" },
   { id: "priceMonitoringBounds", label: "Price Monitoring Bounds" },
 ];
 

@@ -5,6 +5,7 @@ export interface TechnicalIndicatorTransform {
     | "bollinger"
     | "eldarRay"
     | "envelope"
+    | "ichimoku"
     | "movingAverage"
     | "exponentialMovingAverage"
     | "forceIndex"

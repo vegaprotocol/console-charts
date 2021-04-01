@@ -35,6 +35,7 @@ import { Scenegraph } from "../types";
 import { TechnicalIndicatorTransformNode } from "../compile/data/technicalIndicator";
 import { compile } from "../compile/compile";
 import { extent } from "d3-array";
+import { ichimokuIndicator } from "../technical-indicators/ichimoku";
 
 export function compileLayer(
   data: Data,
@@ -226,6 +227,13 @@ export function parse(
             const indicatorData = indicatorEnvelope()(
               data.map((d) => d[transform.on])
             );
+
+            newData = newData.map((d, i) => ({ ...d, ...indicatorData[i] }));
+          }
+          break;
+        case "ichimoku":
+          {
+            const indicatorData = ichimokuIndicator()(data);
 
             newData = newData.map((d, i) => ({ ...d, ...indicatorData[i] }));
           }

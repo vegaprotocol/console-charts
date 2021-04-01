@@ -70,7 +70,7 @@
     "build": "rollup -c && yarn build:types",
     "build:types": "tsc",
     "lint": "eslint --ext .ts,.tsx src",
-    "test": "jest",
+    "test": "jest --config scripts/jest/jest.config.js",
     "storybook": "start-storybook -p 6006 -s assets",
     "build-storybook": "build-storybook -s assets",
     "prepare": "husky install"
