@@ -57,8 +57,8 @@ export class RuleElement implements PositionalElement {
     ctx.lineTo(align(x2, pixelRatio), align(y2, pixelRatio));
 
     ctx.strokeStyle = this.color;
-    ctx.lineCap = "butt";
-    ctx.lineWidth = 2 / pixelRatio;
+    ctx.lineCap = "square";
+    ctx.lineWidth = 1 / pixelRatio;
     ctx.stroke();
     ctx.closePath();
   }

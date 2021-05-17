@@ -1,16 +1,14 @@
 import { RenderableElement, ScaleLinear, ScaleTime } from "../types";
 
-import { Colors } from "../helpers";
+import { align, alignSpan, Colors } from "../helpers";
 
 function addCrosshairPath(
   ctx: CanvasRenderingContext2D,
   xScale: ScaleTime,
   yScale: ScaleLinear,
+  pixelRatio: number,
   position: [Date | null, number | null]
 ) {
-  const x = position[0];
-  const y = position[1];
-
   const xRange = xScale.range().map(Math.round);
   const yRange = yScale.range().map(Math.round);
 
@@ -19,19 +17,25 @@ function addCrosshairPath(
   ctx.setLineDash([4, 6]);
   ctx.lineWidth = 1;
   ctx.strokeStyle = Colors.WHITE;
+  ctx.lineWidth = 1 / pixelRatio;
+  ctx.lineCap = "square";
 
-  if (x) {
+  if (position[0]) {
+    const x = xScale(position[0]);
+
     ctx.beginPath();
-    ctx.moveTo(Math.round(xScale(x)), yRange[0]);
-    ctx.lineTo(Math.round(xScale(x)), yRange[1]);
+    ctx.moveTo(align(x, pixelRatio), align(yRange[0], pixelRatio));
+    ctx.lineTo(align(x, pixelRatio), align(yRange[1], pixelRatio));
     ctx.stroke();
     ctx.closePath();
   }
 
-  if (y) {
+  if (position[1]) {
+    const y = yScale(position[1]);
+
     ctx.beginPath();
-    ctx.moveTo(xRange[0], Math.round(yScale(y)));
-    ctx.lineTo(xRange[1], Math.round(yScale(y)));
+    ctx.moveTo(align(xRange[0], pixelRatio), align(y, pixelRatio));
+    ctx.lineTo(align(xRange[1], pixelRatio), align(y, pixelRatio));
     ctx.stroke();
     ctx.closePath();
   }
@@ -47,6 +51,6 @@ export class CrosshairElement implements RenderableElement {
     pixelRatio: number = 1,
     position: [Date | null, number | null]
   ) {
-    addCrosshairPath(ctx, xScale, yScale, position);
+    addCrosshairPath(ctx, xScale, yScale, pixelRatio, position);
   }
 }

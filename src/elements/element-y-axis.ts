@@ -32,6 +32,7 @@ function addYAxisPath(
   ctx.closePath();
 
   ctx.strokeStyle = "#fff";
+  ctx.lineWidth = 1 / pixelRatio;
   ctx.fillStyle = Colors.GRAY_LIGHT;
   ctx.textBaseline = "middle";
   ctx.textAlign = "left";
@@ -42,8 +43,8 @@ function addYAxisPath(
 
     ctx.fillText(
       tickFormat(tick),
-      xRange[1] - WIDTH + MARGIN,
-      Math.round(yScale(tick))
+      align(xRange[1] - WIDTH + MARGIN, pixelRatio),
+      align(yScale(tick), pixelRatio)
     );
 
     ctx.closePath();

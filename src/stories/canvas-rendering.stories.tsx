@@ -1,4 +1,4 @@
-import "@d3fc/d3fc-element";
+import "../d3fc-element";
 
 import { Meta, Story } from "@storybook/react";
 import { scaleLinear, scaleTime } from "d3-scale";
@@ -13,10 +13,10 @@ export default {
 } as Meta;
 
 const bar = new BarElement({
-  x: new Date(2020, 1, 14),
-  y: 100,
-  width: 1000 * 60 * 60 * 24 * 5,
-  height: 20,
+  x: new Date(2020, 1, 11, 12),
+  y: 103,
+  width: 1000 * 60 * 60 * 24 * 0.5,
+  height: 4,
   fill: "black",
   stroke: "white",
 });
@@ -44,12 +44,13 @@ export const PixelPerfectCandles: Story = () => {
         const pixelRatio = event.detail.pixelRatio;
 
         if (ctx) {
-          ctx.imageSmoothingEnabled = false;
+          ctx.imageSmoothingEnabled = true;
           ctx.scale(1, 1);
           ctx.fillStyle = "black";
           ctx.fillRect(0, 0, pixelRatio * 400, pixelRatio * 400);
 
           ctx.strokeStyle = "yellow";
+          ctx.lineWidth = 2;
           ctx.strokeRect(280, 590, 200, 100);
 
           bar.draw(ctx, xScale, yScale, pixelRatio);

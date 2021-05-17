@@ -1,5 +1,5 @@
 import "d3-transition";
-import "@d3fc/d3fc-element";
+import "../../d3fc-element";
 import "./plot-container.scss";
 
 import * as React from "react";

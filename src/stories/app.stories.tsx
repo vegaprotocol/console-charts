@@ -271,7 +271,7 @@ export const CryptoCompare: Story = () => {
             }
           }}
         />
-        <div style={{ height: "70vh" }}>
+        <div style={{ height: "425px" }}>
           <Chart
             ref={ref}
             dataSource={dataSource}

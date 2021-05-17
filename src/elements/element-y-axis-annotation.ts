@@ -7,6 +7,7 @@ function addYAxisPath(
   ctx: CanvasRenderingContext2D,
   xScale: ScaleTime,
   yScale: ScaleLinear,
+  pixelRatio: number,
   position: number | null,
   decimalPlaces: number
 ) {
@@ -52,7 +53,7 @@ function addYAxisPath(
 
     ctx.beginPath();
     ctx.fillStyle = Colors.WHITE;
-    ctx.fillText(text, width - WIDTH + xPad, y);
+    ctx.fillText(text, align(width - WIDTH + xPad, pixelRatio), y);
     ctx.closePath();
   }
 }
@@ -66,7 +67,19 @@ export class YAxisAnnotationElement implements RenderableElement {
     this.decimalPlaces = decimalPlaces;
   }
 
-  draw(ctx: CanvasRenderingContext2D, xScale: ScaleTime, yScale: ScaleLinear) {
-    addYAxisPath(ctx, xScale, yScale, this.position, this.decimalPlaces);
+  draw(
+    ctx: CanvasRenderingContext2D,
+    xScale: ScaleTime,
+    yScale: ScaleLinear,
+    pixelRatio: number = 1
+  ) {
+    addYAxisPath(
+      ctx,
+      xScale,
+      yScale,
+      pixelRatio,
+      this.position,
+      this.decimalPlaces
+    );
   }
 }
