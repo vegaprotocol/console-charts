@@ -1,4 +1,8 @@
-import { TICK_LABEL_FONT_SIZE, Y_AXIS_WIDTH } from "../constants";
+import {
+  FONT_FAMILY_MONOSPACE,
+  TICK_LABEL_FONT_SIZE,
+  Y_AXIS_WIDTH,
+} from "../constants";
 import { align, Colors, getNumYTicks } from "../helpers";
 import { ScaleLinear, ScaleTime } from "../types";
 import { RenderableElement } from "../types";
@@ -34,7 +38,7 @@ function addYAxisPath(
   ctx.fillStyle = Colors.GRAY_LIGHT;
   ctx.textBaseline = "middle";
   ctx.textAlign = "left";
-  ctx.font = `${TICK_LABEL_FONT_SIZE}px monospace`;
+  ctx.font = `${TICK_LABEL_FONT_SIZE}px ${FONT_FAMILY_MONOSPACE}`;
 
   yTicks.forEach(function drawTick(tick: number) {
     ctx.beginPath();

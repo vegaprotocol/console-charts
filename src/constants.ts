@@ -8,8 +8,13 @@ export const MAX_ZOOM = 10;
 export const LABEL_ANNOTATION_HEIGHT = 22;
 export const DATE_FORMAT = "HH:mm dd MMM yyyy";
 
+export const FONT_FAMILY_MONOSPACE = `"Roboto Mono", monospace`;
+
 // Axes
 export const MIN_NUM_TICKS = 3;
-export const TICK_LABEL_FONT = `"Roboto Mono", monospace`;
 export const TICK_LABEL_FONT_SIZE = 12;
 export const X_AXIS_HEIGHT = 26;
+
+// Sash
+export const SASH_SIZE = 8;
+export const SASH_HOVER_SIZE = 4;

@@ -1,4 +1,4 @@
-import { TICK_LABEL_FONT, TICK_LABEL_FONT_SIZE } from "../constants";
+import { FONT_FAMILY_MONOSPACE, TICK_LABEL_FONT_SIZE } from "../constants";
 import { Colors, tickFormat } from "../helpers";
 import { getNumXTicks } from "../helpers/helpers-axis";
 import { Interval, RenderableElement, ScaleLinear, ScaleTime } from "../types";
@@ -21,7 +21,7 @@ function addXAxisPath(
     ctx.fillStyle = Colors.GRAY_LIGHT;
     ctx.textBaseline = "top";
     ctx.textAlign = "center";
-    ctx.font = `${TICK_LABEL_FONT_SIZE}px ${TICK_LABEL_FONT}`;
+    ctx.font = `${TICK_LABEL_FONT_SIZE}px ${FONT_FAMILY_MONOSPACE}`;
     ctx.fillText(xTickLabels[i], xScale(xTicks[i]), 9);
     ctx.closePath();
   }

@@ -12,6 +12,8 @@ import {
 } from "react";
 import useResizeObserver from "use-resize-observer";
 
+import { SASH_HOVER_SIZE, SASH_SIZE } from "../../constants";
+
 export type SplitViewProps = {
   main: ReactNode;
   study: ReactNode;
@@ -19,10 +21,6 @@ export type SplitViewProps = {
   initialProportion: number;
   onResize?: (proportion: number) => void;
 };
-
-const styles = getComputedStyle(document.documentElement);
-const sashSize =
-  parseFloat(String(styles.getPropertyValue("--sash-size")).trim()) ?? 4;
 
 const minimumSize = 50;
 
@@ -46,9 +44,22 @@ export const SplitView = ({
     []
   );
 
+  useLayoutEffect(() => {
+    document.documentElement.style.setProperty("--sash-size", SASH_SIZE + "px");
+    document.documentElement.style.setProperty(
+      "--sash-hover-size",
+      SASH_HOVER_SIZE + "px"
+    );
+
+    return () => {
+      document.documentElement.style.removeProperty("--sash-size");
+      document.documentElement.style.removeProperty("--sash-hover-size");
+    };
+  }, []);
+
   const layout = useCallback(() => {
     if (showStudy) {
-      sashRef.current.style.top = `${size.current - sashSize / 2}px`;
+      sashRef.current.style.top = `${size.current - SASH_SIZE / 2}px`;
       mainRef.current.style.top = `${0}px`;
       mainRef.current.style.height = `${size.current}px`;
       studyRef.current.style.top = `${size.current}px`;

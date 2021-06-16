@@ -1,8 +1,8 @@
 :root {
-  --focus-border: #007fd4;
+  --focus-border: var(--vega-color-blue);
   --sash-size: 8px;
   --sash-hover-size: 4px;
-  --separator-border: #454545;
+  --separator-border: var(--pennant-color-emphasis-200);
 }
 
 .pennant-split-view {

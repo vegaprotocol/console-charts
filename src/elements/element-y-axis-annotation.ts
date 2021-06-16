@@ -1,4 +1,4 @@
-import { TICK_LABEL_FONT_SIZE, Y_AXIS_WIDTH } from "../constants";
+import { FONT_FAMILY_MONOSPACE, TICK_LABEL_FONT_SIZE, Y_AXIS_WIDTH } from "../constants";
 import { align, Colors, formatter } from "../helpers";
 import { RenderableElement, ScaleLinear, ScaleTime } from "../types";
 
@@ -12,7 +12,7 @@ function addYAxisPath(
   if (position) {
     const width = xScale.range()[1];
 
-    ctx.font = `${TICK_LABEL_FONT_SIZE}px monospace`;
+    ctx.font = `${TICK_LABEL_FONT_SIZE}px ${FONT_FAMILY_MONOSPACE}`;
     ctx.textAlign = "left";
     ctx.textBaseline = "middle";
 
