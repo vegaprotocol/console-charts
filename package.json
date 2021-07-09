@@ -139,7 +139,7 @@
     "standard-version": "9.3.0",
     "subscriptions-transport-ws": "0.9.19",
     "ts-jest": "26.5.6",
-    "ts-node": "10.0.0",
+    "ts-node": "10.1.0",
     "tslib": "2.3.0"
   },
   "peerDependencies": {
